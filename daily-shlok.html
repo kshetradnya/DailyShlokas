@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Daily Shlok</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="page">
+  <main class="page-wrap">
+    <nav class="nav">
+      <a href="DailyShloka.html">Home</a>
+      <a href="account.html">Account</a>
+      <a href="daily-shlok.html">Your Daily Shlok</a>
+      <a href="chapters.html">Chapter Browser</a>
+      <a href="author.html">Author</a>
+      <a href="contact.html">Contact + Feedback</a>
+      <a href="bugs.html">Report Bugs</a>
+      <button class="btn" data-logout>Logout</button>
+    </nav>
+
+    <h1>Your Daily Shlok</h1>
+    <p>Welcome, <strong data-username></strong> | Active Language: <strong id="activeLang"></strong></p>
+
+    <div class="stats">
+      <div class="stat">Current Streak: <span id="dailyStreak">0</span></div>
+    </div>
+
+    <section id="yesterdayPrompt" class="prompt" style="display:none">
+      <h3>Yesterday's Spiritual Goal</h3>
+      <p>Did you complete your goal yesterday?</p>
+      <div class="row">
+        <button class="btn" id="markDone" type="button">Yes, Completed</button>
+        <button class="btn" id="markSkip" type="button">Not Yet</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2 id="verseRef">Bhagavad Gita</h2>
+      <p id="verseText" class="daily-verse"></p>
+      <div class="row">
+        <button class="btn" id="translateBtn" type="button">Translate</button>
+        <button class="btn" id="playVoice" type="button">Listen to Shlok</button>
+        <button class="btn" id="incFont" type="button">A+</button>
+        <button class="btn" id="decFont" type="button">A-</button>
+      </div>
+    </section>
+
+    <section class="grid-2">
+      <div class="card">
+        <h3>Meaning</h3>
+        <p id="verseMeaning"></p>
+      </div>
+      <div class="card">
+        <h3>Today's Spiritual Goal</h3>
+        <p id="verseGoal"></p>
+        <label for="goalNote">Your reflection / commitment</label>
+        <textarea id="goalNote" rows="4" placeholder="Write your reflection..."></textarea>
+        <button class="btn" id="saveNote" type="button">Save Reflection</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Spiritual Sound</h3>
+      <p>Use this focused soundscape while reading.</p>
+      <div class="row">
+        <button class="btn" id="ambientOn" type="button">Play Spiritual Sound</button>
+        <button class="btn" id="ambientOff" type="button">Stop Sound</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h3>Achievements</h3>
+      <div class="badges" id="dailyAchievements"></div>
+    </section>
+  </main>
+
+  <script src="assets/js/shlokas.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

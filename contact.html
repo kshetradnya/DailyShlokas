@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact + Feedback</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="page">
+  <main class="page-wrap">
+    <nav class="nav">
+      <a href="DailyShloka.html">Home</a>
+      <a href="account.html">Account</a>
+      <a href="daily-shlok.html">Your Daily Shlok</a>
+      <a href="chapters.html">Chapter Browser</a>
+      <a href="author.html">Author</a>
+      <a href="contact.html">Contact + Feedback</a>
+      <a href="bugs.html">Report Bugs</a>
+      <button class="btn" data-logout>Logout</button>
+    </nav>
+
+    <section class="grid-2">
+      <div class="card">
+        <h1>Contact Us</h1>
+        <p>Join and support the mission of global Gita learning.</p>
+        <div class="socials">
+          <a class="btn" data-social href="https://twitter.com" target="_blank" rel="noreferrer">Twitter</a>
+          <a class="btn" data-social href="https://linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a class="btn" data-social href="https://facebook.com" target="_blank" rel="noreferrer">Facebook</a>
+          <a class="btn" data-social href="https://instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Feedback</h2>
+        <form id="feedbackForm">
+          <label for="feedbackMsg">Your Feedback</label>
+          <textarea id="feedbackMsg" rows="8" required placeholder="Tell us what should improve..."></textarea>
+          <button class="btn" type="submit">Submit Feedback</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="assets/js/shlokas.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

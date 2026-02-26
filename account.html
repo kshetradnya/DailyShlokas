@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Account</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body class="page">
+  <main class="page-wrap">
+    <nav class="nav">
+      <a href="DailyShloka.html">Home</a>
+      <a href="account.html">Account</a>
+      <a href="daily-shlok.html">Your Daily Shlok</a>
+      <a href="chapters.html">Chapter Browser</a>
+      <a href="author.html">Author</a>
+      <a href="contact.html">Contact + Feedback</a>
+      <a href="bugs.html">Report Bugs</a>
+      <button class="btn" data-logout>Logout</button>
+    </nav>
+
+    <h1>Account Settings</h1>
+    <p>Logged in as <strong data-username></strong></p>
+
+    <section class="card">
+      <label for="accEmail">Email</label>
+      <input id="accEmail" type="email" disabled />
+      <label for="accUsername">Username</label>
+      <input id="accUsername" type="text" />
+      <label for="accLanguage">Preferred Language</label>
+      <select id="accLanguage">
+        <option value="sanskrit">Sanskrit</option>
+        <option value="english">English</option>
+        <option value="hindi">Hindi</option>
+      </select>
+      <button id="saveAccount" class="btn" type="button">Save</button>
+    </section>
+
+    <section class="stats">
+      <div class="stat">Streak: <span id="accStreak">0</span></div>
+      <div class="stat">Completed Goals: <span id="accCompleted">0</span></div>
+    </section>
+
+    <section class="card">
+      <h2>40 Achievements</h2>
+      <div class="badges" id="achievementsGrid"></div>
+    </section>
+  </main>
+
+  <script src="assets/js/shlokas.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

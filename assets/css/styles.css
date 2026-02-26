@@ -1,0 +1,221 @@
+:root {
+  --bg: #f4ecd8;
+  --ink: #20110a;
+  --brand: #b24612;
+  --brand-2: #d88418;
+  --card: rgba(255, 248, 230, 0.9);
+  --shadow: rgba(32, 17, 10, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Trebuchet MS", "Noto Serif Devanagari", serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 20% 10%, #ffe9bf, #f3dfb8 45%, #e8cf9d 100%);
+  min-height: 100vh;
+}
+
+.home-hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(120deg, rgba(16, 9, 7, 0.45), rgba(33, 13, 5, 0.35)),
+    url("../images/kurukshetra.jpg") center/cover no-repeat;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+
+.hero-box {
+  max-width: 980px;
+  width: 100%;
+  background: rgba(255, 247, 225, 0.84);
+  border: 2px solid rgba(178, 70, 18, 0.6);
+  box-shadow: 0 15px 40px var(--shadow);
+  border-radius: 20px;
+  padding: 2rem;
+  backdrop-filter: blur(3px);
+  animation: rise 700ms ease;
+}
+
+h1, h2, h3, h4 {
+  margin-top: 0;
+}
+
+.nav {
+  display: flex;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.nav a, .btn {
+  background: linear-gradient(90deg, var(--brand), var(--brand-2));
+  color: #fff;
+  text-decoration: none;
+  border: 0;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  cursor: pointer;
+  font-weight: 700;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.nav a:hover, .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 18px rgba(178, 70, 18, 0.32);
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid rgba(130, 75, 34, 0.3);
+  border-radius: 14px;
+  padding: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+input, select, textarea {
+  width: 100%;
+  border: 1px solid #bd9f71;
+  border-radius: 8px;
+  padding: 0.6rem;
+  margin-bottom: 0.7rem;
+  font: inherit;
+}
+
+.page {
+  padding: 1rem;
+}
+
+.page-wrap {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.daily-verse {
+  font-size: 1.3rem;
+  line-height: 1.8;
+  font-weight: 800;
+  background: #fff5db;
+  border-left: 8px solid var(--brand);
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.row {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.stats {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.stat {
+  background: #fff5db;
+  border-radius: 12px;
+  padding: 0.7rem 1rem;
+  font-weight: 800;
+  border: 1px solid #d7ab5f;
+}
+
+.badges {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 0.8rem;
+}
+
+.badge {
+  padding: 0.7rem;
+  border-radius: 10px;
+  border: 1px dashed #b89b72;
+}
+
+.badge.unlocked {
+  background: linear-gradient(140deg, #fff2c7, #ffe1a7);
+  border: 1px solid #d79320;
+}
+
+.badge.locked {
+  background: #f6efe3;
+  opacity: 0.7;
+}
+
+.prompt {
+  border: 1px solid #db8441;
+  background: #fff3e0;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.timeline {
+  display: grid;
+  gap: 0.8rem;
+}
+
+.timeline-item {
+  border-left: 5px solid var(--brand);
+  background: #fff5df;
+  border-radius: 10px;
+  padding: 0.8rem;
+  opacity: 0;
+  transform: translateX(-12px);
+  animation: slide 600ms ease forwards;
+}
+
+.timeline-item span {
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.socials a {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.float {
+  animation: float 3.5s ease-in-out infinite;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slide {
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+@media (max-width: 680px) {
+  .hero-box {
+    padding: 1rem;
+  }
+  .daily-verse {
+    font-size: 1.15rem;
+  }
+}
