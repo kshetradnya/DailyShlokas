@@ -509,12 +509,21 @@
     if (!timeline) return;
     markFlag(user, "timelineView");
     saveCurrentUser(user);
-    const years = [2019, 2020, 2021, 2022, 2023, 2024, 2025, 2026];
-    years.forEach((y, i) => {
+    const milestones = [
+      { year: 2019, text: "Started disciplined study and daily reflection habits." },
+      { year: 2020, text: "Built consistency with chapter-wise reading and journaling." },
+      { year: 2021, text: "Shared learnings in small peer circles and study groups." },
+      { year: 2022, text: "Connected spiritual practice with practical daily goals." },
+      { year: 2023, text: "Expanded multilingual exploration: Sanskrit, Hindi, English." },
+      { year: 2024, text: "Structured mission-first approach for global cultural access." },
+      { year: 2025, text: "Designed digital systems for daily shlok accountability." },
+      { year: 2026, text: "Launched the public mission platform with visual learning paths." }
+    ];
+    milestones.forEach((m, i) => {
       const item = document.createElement("div");
       item.className = "timeline-item";
       item.style.animationDelay = `${i * 120}ms`;
-      item.innerHTML = `<span>${y}</span><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer vitae neque non risus finibus ullamcorper.</p>`;
+      item.innerHTML = `<span>${m.year}</span><p>${m.text}</p>`;
       timeline.appendChild(item);
     });
   }
@@ -575,6 +584,7 @@
     const langEl = document.getElementById("chapterLang");
     const prevBtn = document.getElementById("chapterPrev");
     const nextBtn = document.getElementById("chapterNext");
+    const chips = document.getElementById("chapterChips");
 
     if (!chapterSelect || !verseSelect) return;
 
@@ -591,6 +601,22 @@
       o.value = String(c);
       o.textContent = `Chapter ${c}`;
       chapterSelect.appendChild(o);
+    }
+
+    if (chips) {
+      for (let c = 1; c <= 18; c += 1) {
+        const chip = document.createElement("button");
+        chip.className = "chapter-chip";
+        chip.type = "button";
+        chip.dataset.chapter = String(c);
+        chip.textContent = `Ch ${c} • ${window.VERSE_COUNTS[c]}v`;
+        chip.addEventListener("click", () => {
+          chapterSelect.value = String(c);
+          fillVerseOptions(c, 1);
+          paint();
+        });
+        chips.appendChild(chip);
+      }
     }
 
     function fillVerseOptions(chapter, selectedVerse) {
@@ -618,6 +644,14 @@
       meaningEl.textContent = item.meaning || "Meaning pending.";
       goalEl.textContent = item.goal || "Goal pending.";
       langEl.textContent = currentLang.toUpperCase();
+      verseEl.classList.remove("chapter-verse");
+      void verseEl.offsetWidth;
+      verseEl.classList.add("chapter-verse");
+      if (chips) {
+        chips.querySelectorAll(".chapter-chip").forEach((chip) => {
+          chip.classList.toggle("active", chip.dataset.chapter === chapterSelect.value);
+        });
+      }
       trackLanguage(user, currentLang);
       saveCurrentUser(user);
     }

@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OCR Data</title>
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <style>
+    pre.ocr-preview {
+      white-space: pre-wrap;
+      max-height: 420px;
+      overflow: auto;
+      background: #fff5df;
+      border: 1px solid #d7ab5f;
+      border-radius: 10px;
+      padding: 1rem;
+      font-size: 0.9rem;
+      line-height: 1.45;
+    }
+  </style>
+</head>
+<body class="page">
+  <main class="page-wrap">
+    <nav class="nav">
+      <a href="DailyShloka.html">Home</a>
+      <a href="account.html">Account</a>
+      <a href="daily-shlok.html">Your Daily Shlok</a>
+      <a href="chapters.html">Chapter Browser</a>
+      <a href="ocr-data.html">OCR Data</a>
+      <a href="author.html">Author</a>
+      <a href="contact.html">Contact + Feedback</a>
+      <a href="bugs.html">Report Bugs</a>
+    </nav>
+
+    <h1>OCR Data Files</h1>
+    <p>This page makes OCR outputs directly accessible online.</p>
+
+    <section class="card">
+      <h2>Direct Files</h2>
+      <ul>
+        <li><a href="data/ocr/first-pass/first_pass_raw.txt" target="_blank" rel="noreferrer">Open OCR Raw Text</a></li>
+        <li><a href="data/shlokas-full.json" target="_blank" rel="noreferrer">Open Full Shlokas JSON</a></li>
+        <li><a href="data/EXTRACTION_NOTES.md" target="_blank" rel="noreferrer">Open Extraction Notes</a></li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>OCR Preview (First 250 Lines)</h2>
+      <pre id="ocrPreview" class="ocr-preview">Loading OCR preview...</pre>
+    </section>
+  </main>
+
+  <script>
+    (async function () {
+      const el = document.getElementById('ocrPreview');
+      try {
+        const res = await fetch('data/ocr/first-pass/first_pass_raw.txt', { cache: 'no-store' });
+        if (!res.ok) throw new Error('HTTP ' + res.status);
+        const txt = await res.text();
+        el.textContent = txt.split('\n').slice(0, 250).join('\n');
+      } catch (err) {
+        el.textContent = 'Could not load OCR file online. If this is GitHub Pages, verify the file was committed and deployed.\\nError: ' + err.message;
+      }
+    })();
+  </script>
+</body>
+</html>

@@ -13,16 +13,27 @@
       <a href="account.html">Account</a>
       <a href="daily-shlok.html">Your Daily Shlok</a>
       <a href="chapters.html">Chapter Browser</a>
+      <a href="ocr-data.html">OCR Data</a>
       <a href="author.html">Author</a>
       <a href="contact.html">Contact + Feedback</a>
       <a href="bugs.html">Report Bugs</a>
       <button class="btn" data-logout>Logout</button>
     </nav>
 
-    <h1>Bhagavad Gita Chapter Browser</h1>
-    <p>Browse all 18 chapters and 701 verse slots. Available verses are filled; OCR-pending verses are marked clearly.</p>
+    <section class="chapter-hero card fx-pop">
+      <div class="chapter-halo"></div>
+      <div>
+        <h1>Bhagavad Gita Chapter Browser</h1>
+        <p>Browse all 18 chapters and 701 verse slots. Available verses are filled; OCR-pending verses are marked clearly.</p>
+      </div>
+    </section>
 
-    <section class="card">
+    <section class="card fx-fade-up">
+      <h3>Chapter Map</h3>
+      <div id="chapterChips" class="chapter-chips"></div>
+    </section>
+
+    <section class="card chapter-controls fx-fade-up">
       <div class="grid-2">
         <div>
           <label for="chapterSelect">Chapter</label>
@@ -41,15 +52,15 @@
       </div>
       <p>Viewing Language: <strong id="chapterLang">ENGLISH</strong></p>
       <h3 id="chapterRef">Bhagavad Gita</h3>
-      <p id="chapterVerse" class="daily-verse"></p>
+      <p id="chapterVerse" class="daily-verse chapter-verse"></p>
     </section>
 
     <section class="grid-2">
-      <div class="card">
+      <div class="card fx-fade-up">
         <h3>Meaning</h3>
         <p id="chapterMeaning"></p>
       </div>
-      <div class="card">
+      <div class="card fx-fade-up">
         <h3>Spiritual Goal</h3>
         <p id="chapterGoal"></p>
       </div>
